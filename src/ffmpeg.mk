@@ -62,6 +62,8 @@ define $(PKG)_BUILD
         --enable-libx264 \
         --enable-libxvid \
         --extra-ldflags="-fstack-protector" \
+        --enable-dxva2 \
+        --enable-d3d11va \
         $($(PKG)_CONFIGURE_OPTS)
     $(MAKE) -C '$(BUILD_DIR)' -j '$(JOBS)'
     $(MAKE) -C '$(BUILD_DIR)' -j 1 install
