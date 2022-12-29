@@ -27,10 +27,10 @@ define $(PKG)_BUILD
     $(INSTALL) -d '$(PREFIX)/$(TARGET)/include'
     $(INSTALL) -m644 '$(SOURCE_DIR)/src/xvid.h' '$(PREFIX)/$(TARGET)/include/'
     $(INSTALL) -d '$(PREFIX)/$(TARGET)/lib' '$(PREFIX)/$(TARGET)/bin'
-    $(INSTALL) -m644 '$(BUILD_DIR)/xvidcore.$(LIB_SUFFIX)' \
-        '$(PREFIX)/$(TARGET)/$(if $(BUILD_STATIC),lib,bin)/'
+    mv $(BUILD_DIR)/xvidcore.$(LIB_SUFFIX) $(BUILD_DIR)/libxvidcore.$(LIB_SUFFIX) && \
+      $(INSTALL) -m644 '$(BUILD_DIR)/libxvidcore.$(LIB_SUFFIX)' \
+       '$(PREFIX)/$(TARGET)/$(if $(BUILD_STATIC),lib,bin)/'
     $(if $(BUILD_STATIC), \
-        ln -sf '$(PREFIX)/$(TARGET)/lib/xvidcore.$(LIB_SUFFIX)' '$(PREFIX)/$(TARGET)/lib/libxvidcore.$(LIB_SUFFIX)', \
         mv '$(BUILD_DIR)/xvidcore.dll.a' '$(BUILD_DIR)/libxvidcore.dll.a' && \
         $(INSTALL) -m644 '$(BUILD_DIR)/libxvidcore.dll.a' '$(PREFIX)/$(TARGET)/lib/'
     )
