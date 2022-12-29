@@ -1,0 +1,12 @@
+diff -Naur a/wscript b/wscript
+--- a/wscript	2021-06-14 21:02:10.391314877 -0400
++++ b/wscript	2021-06-14 21:02:08.744637123 -0400
+@@ -589,7 +589,7 @@
+         'deps': 'os-win32 || os-cygwin',
+         'groups': [ 'gl' ],
+         'func': check_statement(['EGL/egl.h', 'EGL/eglext.h'],
+-                                'int x = EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE')
++                                'int x = EGL_PLATFORM_ANGLE_ANGLE')
+     } , {
+         'name': '--egl-angle-lib',
+         'desc': 'OpenGL Win32 ANGLE Library',
