@@ -3,14 +3,14 @@
 PKG             := ffmpeg
 $(PKG)_WEBSITE  := https://ffmpeg.org/
 $(PKG)_IGNORE   :=
-$(PKG)_VERSION  := 4.2.3
-$(PKG)_CHECKSUM := 217eb211c33303b37c5521a5abe1f0140854d6810c6a6ee399456cc96356795e
+$(PKG)_VERSION  := 5.1.2
+$(PKG)_CHECKSUM := 39a0bcc8d98549f16c570624678246a6ac736c066cebdb409f9502e915b22f2b
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.bz2
 $(PKG)_URL      := https://ffmpeg.org/releases/$($(PKG)_FILE)
 $(PKG)_DEPS     := cc bzip2 gnutls lame libass libbluray libbs2b libcaca \
                    libvpx opencore-amr opus sdl2 speex theora vidstab \
-                   vo-amrwbenc vorbis x264 xvidcore yasm zlib
+                   vo-amrwbenc vorbis x264 xvidcore yasm zlib avisynthplus
 
 # DO NOT ADD fdk-aac OR openssl SUPPORT.
 # Although they are free softwares, their licenses are not compatible with
@@ -40,7 +40,6 @@ define $(PKG)_BUILD
         --disable-pthreads \
         --enable-w32threads \
         --disable-doc \
-        --enable-avresample \
         --enable-gpl \
         --enable-version3 \
         --extra-libs='-mconsole' \
