@@ -30,10 +30,6 @@ define $(PKG)_BUILD
     mv $(BUILD_DIR)/xvidcore.$(LIB_SUFFIX) $(BUILD_DIR)/libxvidcore.$(LIB_SUFFIX) && \
       $(INSTALL) -m644 '$(BUILD_DIR)/libxvidcore.$(LIB_SUFFIX)' \
        '$(PREFIX)/$(TARGET)/$(if $(BUILD_STATIC),lib,bin)/'
-    $(if $(BUILD_STATIC), \
-        mv '$(BUILD_DIR)/xvidcore.dll.a' '$(BUILD_DIR)/libxvidcore.dll.a' && \
-        $(INSTALL) -m644 '$(BUILD_DIR)/libxvidcore.dll.a' '$(PREFIX)/$(TARGET)/lib/'
-    )
 endef
 
 define $(PKG)_BUILD_x86_64-w64-mingw32
